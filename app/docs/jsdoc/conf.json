@@ -1,0 +1,18 @@
+{
+  "source": {
+    "include": "app/scripts"
+  },
+  "plugins": [
+    "node_modules/jsdoc/plugins/markdown",
+    "app/docs/jsdoc/plugins/tsdoc"
+  ],
+  "templates": {
+    "cleverLinks": true,
+    "monospaceLinks": true
+  },
+  "opts": {
+    "recurse": true,
+    "template": "app/docs/jsdoc/template",
+    "destination": "app/docs/data"
+  }
+}

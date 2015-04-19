@@ -1,0 +1,14 @@
+<div class="header">
+    <div class="name">{{data.doclet.longname}}</div>
+    <div class="description" ng-bind-html="data.doclet.description | trustedHtml"></div>
+</div>
+
+<div class="properties members">
+    <div class="title">Properties</div>
+
+    <div class="member property" ng-repeat="property in data.doclet.properties">
+        <div class="name">{{property.name}}</div>
+        <div class="type">({{property.type.names[0]}})</div>
+        <div class="description" ng-bind-html="property.description | trustedHtml"></div>
+    </div>
+</div>

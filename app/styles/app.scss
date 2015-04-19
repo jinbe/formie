@@ -1,0 +1,18 @@
+// define variables
+$pendingColor: #ffc900;
+$doneColor: #02b8df;
+$logoSoftColor: #02b8df;
+$logoStrongColor: #ee1c25;
+$conditionColor: #444444;
+$medicationColor: #000000;
+$linkColor: #428bca;
+$emptyColor: lightgray;
+$errorColor: #ee1c25;
+
+// global styles
+@import "global";
+
+// specific styles
+@import "directives/tsErrorMessage";
+@import "directives/tsForm";
+@import "../docs/styles/docs";

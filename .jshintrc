@@ -1,0 +1,34 @@
+{
+  "bitwise": true,
+  "browser": true,
+  "camelcase": true,
+  "curly": true,
+  "devel": true,
+  "eqeqeq": true,
+  "esnext": true,
+  "exported": {
+    "Cart": true,
+    "Form": true,
+    "FormField": true,
+    "User": true
+  },
+  "globals": {
+    "Cart": true,
+    "Form": true,
+    "FormField": true,
+    "User": true,
+    "angular": false,
+    "cordova": false
+  },
+  "immed": true,
+  "jquery": true,
+  "latedef": "nofunc",
+  "multistr": true,
+  "newcap": true,
+  "noarg": true,
+  "node": true,
+  "quotmark": "single",
+  "strict": true,
+  "undef": true,
+  "unused": true
+}

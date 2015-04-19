@@ -1,0 +1,10 @@
+/.idea
+/app/docs/data
+/app/docs/lib
+/app/docs/scripts/auto
+/app/docs/styles/auto
+/app/docs/views/auto
+/app/lib
+/app/scripts/auto
+/app/styles/auto
+/node_modules

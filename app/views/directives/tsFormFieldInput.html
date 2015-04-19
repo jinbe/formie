@@ -1,0 +1,30 @@
+<div ng-switch="formField.type">
+    <ts-form-field-address
+            form-field="formField" ng-if="formField.type === 'address'"></ts-form-field-address>
+    <ts-form-field-blood-pressure
+            form-field="formField" ng-if="formField.type === 'bloodPressure'"></ts-form-field-blood-pressure>
+    <ts-form-field-check
+            form-field="formField" ng-if="formField.type === 'check'"></ts-form-field-check>
+    <ts-form-field-date
+            form-field="formField" ng-if="formField.type === 'date'"></ts-form-field-date>
+    <ts-form-field-doctor
+            form-field="formField" ng-if="formField.type === 'doctor'"></ts-form-field-doctor>
+    <ts-form-field-email
+            form-field="formField" ng-if="formField.type === 'email'"></ts-form-field-email>
+    <ts-form-field-height
+            form-field="formField" ng-if="formField.type === 'height'"></ts-form-field-height>
+    <ts-form-field-month
+            form-field="formField" ng-if="formField.type === 'month'"></ts-form-field-month>
+    <ts-form-field-password
+            form-field="formField" ng-if="formField.type === 'password'"></ts-form-field-password>
+    <ts-form-field-phone
+            form-field="formField" ng-if="formField.type === 'phone'"></ts-form-field-phone>
+    <ts-form-field-text
+            form-field="formField" ng-if="formField.type === 'text'"></ts-form-field-text>
+    <ts-form-field-text-area
+            form-field="formField" ng-if="formField.type === 'textArea'"></ts-form-field-text-area>
+    <ts-form-field-weight
+            form-field="formField" ng-if="formField.type === 'weight'"></ts-form-field-weight>
+    <ts-form-field-discrete
+            form-field="formField" ng-if="formField.isDiscrete()"></ts-form-field-discrete>
+</div>
