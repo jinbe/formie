@@ -12,7 +12,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
         })
         .state('docs.guide', {
             url: '/guide',
-            templateUrl: '#/docs/views/auto/guide.html'
+            templateUrl: 'docs/views/auto/guide.html'
         })
         .state('docs.doclet', {
             url: '/doclet/:docletId',
