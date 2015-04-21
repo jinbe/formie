@@ -6,7 +6,7 @@ var browserSync = require('browser-sync');
 gulp.task('serve', ['watch'], function() {
     browserSync({
         server: {
-            baseDir: 'app'
+            baseDir: 'demo'
         },
         port: 3000,
         notify: false,

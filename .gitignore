@@ -7,4 +7,8 @@
 /app/lib
 /app/scripts/auto
 /app/styles/auto
+/demo/docs
+/demo/lib
+/demo/scripts/auto
+/demo/styles/auto
 /node_modules

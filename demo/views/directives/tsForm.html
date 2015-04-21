@@ -1,0 +1,23 @@
+<h3 class="formHeader" ng-show="showOverview && !form.currentField">
+    {{form.title}}
+    <a href="#" class="editForm" ng-click="form.nextField()">
+        Edit
+    </a>
+</h3>
+
+<div class="formBody">
+    <div class="overviewSection">
+    </div>
+
+    <div class="helpSection" ng-if="form.help">
+        Form help:
+        <ts-form-help help-data="form.help"></ts-form-help>
+    </div>
+
+    <div class="wizardSection">
+        <ts-form-field form="form" form-field="form.currentField" ng-show="form.currentField"></ts-form-field>
+    </div>
+</div>
+
+<div class="formFooter">
+</div>

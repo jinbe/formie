@@ -9,5 +9,5 @@ gulp.task('compile', ['compile:clean'], function(done) {
 });
 
 gulp.task('compile:clean', function(done) {
-    del('app/{assets,scripts,styles}/auto/**', done);
+    del('demo/{assets,scripts,styles}/auto/**', done);
 });

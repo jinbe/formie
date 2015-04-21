@@ -1,0 +1,14 @@
+<div class="button-bar" ng-if="formField.options.length === 2">
+    <a class="button" ng-repeat="option in formField.options"
+       ng-class="{'button-calm': formField.value === option}" ng-click="complete(option)">
+        <i class="ion-man" ng-if="option === 'male'"></i>
+        <i class="ion-woman" ng-if="option === 'female'"></i>
+        {{option}}
+    </a>
+</div>
+
+<ion-radio ng-repeat="option in formField.options"
+           ng-model="formField.value" ng-value="option" ng-click="complete()"
+           ng-if="formField.options.length !== 2">
+    {{option}}
+</ion-radio>

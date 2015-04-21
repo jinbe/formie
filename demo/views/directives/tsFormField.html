@@ -1,0 +1,13 @@
+<div class="fieldHeader">
+    {{formField.question || formField.choiceField.question}}
+</div>
+
+<div class="fieldBody">
+    <div class="list list-inset">
+        <ts-form-field-input ng-repeat="field in formField.answerableFields()" class="item-text-wrap" form-field="field"></ts-form-field-input>
+    </div>
+</div>
+
+<div class="fieldFooter" ng-if="formField.help">
+    <ts-form-help help-data="formField.help"></ts-form-help>
+</div>

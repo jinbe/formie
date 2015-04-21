@@ -38,7 +38,8 @@
     "typescript": "^1.4.1",
     "wiredep": "^2.2.2",
     "jsdoc": "^3.3.0-beta3",
-    "gulp-markdown": "^1.0.0"
+    "gulp-markdown": "^1.0.0",
+    "jsguide": "git://github.com/2sol/jsguide"
   },
   "cordovaPlugins": [],
   "cordovaPlatforms": [

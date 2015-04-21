@@ -8,7 +8,7 @@ var jshint = require('gulp-jshint');
 var size = require('gulp-size');
 
 gulp.task('scripts', ['scripts:typescript'], function() {
-    return gulp.src('app/scripts/**/*.js')
+    return gulp.src('demo/scripts/**/*.js')
         .pipe(jshint())
         .pipe(jshint.reporter('jshint-stylish'))
         .pipe(size());
@@ -20,9 +20,9 @@ gulp.task('scripts:typescript', function() {
         removeComments: false
     };
 
-    return gulp.src('app/scripts/models/**/*.ts')
+    return gulp.src('demo/scripts/models/**/*.ts')
         .pipe(typescript(options))
         .pipe(replace(/'use strict';\s*/g, ''))
         .pipe(insert.prepend('\'use strict\';\n\n'))
-        .pipe(gulp.dest('app/scripts/auto'));
+        .pipe(gulp.dest('demo/scripts/auto'));
 });

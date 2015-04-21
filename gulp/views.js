@@ -8,7 +8,7 @@ var insert = require('gulp-insert');
 var size = require('gulp-size');
 
 gulp.task('views', function() {
-    return gulp.src('app/views/**/*.html')
+    return gulp.src('demo/views/**/*.html')
         .pipe(minifyHtml({
             empty: true,
             spare: true,
@@ -21,6 +21,6 @@ gulp.task('views', function() {
         }))
         .pipe(concat('views.js'))
         .pipe(insert.prepend('\'use strict\';\n\n'))
-        .pipe(gulp.dest('app/scripts/auto'))
+        .pipe(gulp.dest('demo/scripts/auto'))
         .pipe(size());
 });
