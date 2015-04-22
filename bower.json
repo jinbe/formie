@@ -20,7 +20,10 @@
     "ionic"
   ],
   "license": "MIT",
-  "main": "dist/formieIonic.js",
+  "main": [
+    "dist/formieIonic.js",
+    "dist/formieIonic.css"
+  ],
   "ignore": [
     "/.idea",
     "/demo",
