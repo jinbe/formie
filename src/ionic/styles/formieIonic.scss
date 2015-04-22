@@ -10,8 +10,180 @@ $emptyColor: lightgray;
 $errorColor: #ee1c25;
 
 // global styles
-@import "global";
+body {
+  font-family: 'Open Sans', sans-serif;
+}
 
-// specific styles
-@import "directives/tsErrorMessage";
-@import "directives/tsForm";
+.row {
+  margin: 0;
+  padding: 0;
+
+  .col {
+    margin: 0;
+    padding: 20px;
+  }
+}
+
+.sectionTitle {
+  border-bottom: solid 2px #444444;
+  color: #444444;
+}
+
+.docsSection {
+  position: relative;
+  min-height: 100vh;
+  border-right: dashed 2px darkgray;
+
+  iframe {
+    width: 100%;
+    min-height: 80vh;
+  }
+}
+
+.jsonSection {
+  min-height: 100vh;
+  border-right: dashed 2px darkgray;
+
+  .CodeMirror {
+    height: auto;
+    min-height: 80vh;
+  }
+}
+
+.formSection {
+  min-height: 100vh;
+
+  ts-error-message {
+    font-size: 1.4em;
+    line-height: 1.4em;
+  }
+
+  .formView {
+    min-height: 80vh;
+    border: solid 2px #A35A00;
+
+    .formNav {
+      background: #A35A00;
+
+      .col {
+        padding: 0;
+      }
+
+      .button {
+        color: white;
+        font-weight: bold;
+      }
+
+      .left {
+        text-align: left;
+      }
+
+      .center {
+        text-align: center;
+
+        .button {
+          cursor: default;
+        }
+      }
+
+      .right {
+        text-align: right;
+      }
+    }
+
+    .formComplete {
+      color: #A35A00;
+      font-weight: bold;
+      font-size: 2em;
+      line-height: 2em;
+      text-align: center;
+
+      i {
+        margin-right: 5px;
+      }
+    }
+  }
+}
+
+// directive styles
+ts-error-message {
+  color: $errorColor;
+  font-weight: bold;
+}
+
+ts-form {
+  .formHeader {
+    margin: 10px;
+
+    .editForm {
+      color: $pendingColor;
+      font-size: 0.6em;
+      font-weight: bold;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+  }
+
+  .formBody {
+    .overviewSection {
+    }
+
+    .helpSection {
+    }
+
+    .wizardSection {
+    }
+  }
+
+  .formFooter {
+    margin: 10px;
+  }
+}
+
+ts-form-field {
+  .fieldHeader {
+    margin: 10px;
+    font-size: 1.4em;
+    line-height: 1.4em;
+  }
+
+  .fieldBody {
+    .list {
+      margin: 10px;
+
+      .item {
+        .input-label {
+          width: 100%;
+          max-width: none;
+        }
+      }
+    }
+  }
+
+  .fieldFooter {
+    margin: 10px;
+  }
+}
+
+ts-form-field-discrete {
+  a {
+    text-transform: capitalize;
+  }
+}
+
+ts-form-help {
+  .helpText {
+  }
+
+  .helpHtml {
+  }
+
+  .helpPopupLink {
+  }
+
+  .helpPopupText {
+  }
+
+  .helpPopupHtml {
+  }
+}

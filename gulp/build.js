@@ -5,8 +5,8 @@ var angularFilesort = require('gulp-angular-filesort');
 var autoprefixer = require('gulp-autoprefixer');
 var concat = require('gulp-concat');
 var del = require('del');
-var directiveReplace = require('gulp-directive-replace');
 var gulp = require('gulp');
+var gulptools = require('./gulptools');
 var header = require('gulp-header');
 var jshint = require('gulp-jshint');
 var minifyCss = require('gulp-minify-css');
@@ -32,7 +32,7 @@ gulp.task('build:typescript', function() {
 
 gulp.task('build:scripts', ['build:typescript'], function() {
     return gulp.src('src/ionic/scripts/directives/**/*.js')
-        .pipe(directiveReplace({root: 'src/ionic'}))
+        .pipe(gulptools.expandTemplateUrl('src/ionic'))
         .pipe(addSrc(['src/ionic/scripts/**/*.js', '!src/ionic/scripts/directives/**/*.js']))
         .pipe(addSrc('src/models/auto/**/*.js'))
         .pipe(jshint())
