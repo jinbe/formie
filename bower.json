@@ -23,10 +23,18 @@
   "main": "dist/formieIonic.js",
   "ignore": [
     "**/.*",
+    ".idea",
+    "demo",
+    "docs",
+    "gulp",
     "node_modules",
-    "bower_components",
+    "src",
     "test",
-    "tests"
+    ".gitignore",
+    ".jshintrc",
+    "gulpfile.js",
+    "package.json",
+    "TODO.txt"
   ],
   "dependencies": {
     "ionic": "~0.9.27"
