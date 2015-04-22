@@ -1,14 +1,8 @@
 /.idea
-/app/docs/data
-/app/docs/lib
-/app/docs/scripts/auto
-/app/docs/styles/auto
-/app/docs/views/auto
-/app/lib
-/app/scripts/auto
-/app/styles/auto
 /demo/docs
 /demo/lib
 /demo/scripts/auto
 /demo/styles/auto
+/docs/auto
 /node_modules
+/src/models/auto

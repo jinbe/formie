@@ -11,7 +11,7 @@
  * @param {boolean} showOverview whether the form overview is shown at the start/end of the wizard.
  * @param {string} submitState the state to show when the form is complete.
  */
-angular.module('dodDocs').directive('tsForm', ['$state', function($state) {
+angular.module('formieIonic').directive('tsForm', ['$state', function($state) {
     var directive = {
         restrict: 'E',
         scope: {
@@ -39,7 +39,7 @@ angular.module('dodDocs').directive('tsForm', ['$state', function($state) {
     return directive;
 }]);
 
-angular.module('dodDocs').directive('tsFormField', [function() {
+angular.module('formieIonic').directive('tsFormField', [function() {
     var directive = {
         restrict: 'E',
         scope: {
@@ -63,7 +63,7 @@ angular.module('dodDocs').directive('tsFormField', [function() {
     return directive;
 }]);
 
-angular.module('dodDocs').directive('tsFormFieldInput', [function() {
+angular.module('formieIonic').directive('tsFormFieldInput', [function() {
     var directive = {
         restrict: 'E',
         scope: {
@@ -78,7 +78,7 @@ angular.module('dodDocs').directive('tsFormFieldInput', [function() {
     return directive;
 }]);
 
-angular.module('dodDocs').directive('tsFormFieldAddress', [function() {
+angular.module('formieIonic').directive('tsFormFieldAddress', [function() {
     var directive = {
         require: '^tsFormField',
         restrict: 'E',
@@ -99,7 +99,7 @@ angular.module('dodDocs').directive('tsFormFieldAddress', [function() {
     return directive;
 }]);
 
-angular.module('dodDocs').directive('tsFormFieldBloodPressure', [function() {
+angular.module('formieIonic').directive('tsFormFieldBloodPressure', [function() {
     var directive = {
         require: '^tsFormField',
         restrict: 'E',
@@ -120,7 +120,7 @@ angular.module('dodDocs').directive('tsFormFieldBloodPressure', [function() {
     return directive;
 }]);
 
-angular.module('dodDocs').directive('tsFormFieldCheck', [function() {
+angular.module('formieIonic').directive('tsFormFieldCheck', [function() {
     var directive = {
         require: '^tsFormField',
         restrict: 'E',
@@ -139,7 +139,7 @@ angular.module('dodDocs').directive('tsFormFieldCheck', [function() {
     return directive;
 }]);
 
-angular.module('dodDocs').directive('tsFormFieldDate', [function() {
+angular.module('formieIonic').directive('tsFormFieldDate', [function() {
     var directive = {
         require: '^tsFormField',
         restrict: 'E',
@@ -156,7 +156,7 @@ angular.module('dodDocs').directive('tsFormFieldDate', [function() {
     return directive;
 }]);
 
-angular.module('dodDocs').directive('tsFormFieldDiscrete', [function() {
+angular.module('formieIonic').directive('tsFormFieldDiscrete', [function() {
     var directive = {
         require: '^tsFormField',
         restrict: 'E',
@@ -179,7 +179,7 @@ angular.module('dodDocs').directive('tsFormFieldDiscrete', [function() {
     return directive;
 }]);
 
-angular.module('dodDocs').directive('tsFormFieldDoctor', [function() {
+angular.module('formieIonic').directive('tsFormFieldDoctor', [function() {
     var directive = {
         require: '^tsFormField',
         restrict: 'E',
@@ -200,7 +200,7 @@ angular.module('dodDocs').directive('tsFormFieldDoctor', [function() {
     return directive;
 }]);
 
-angular.module('dodDocs').directive('tsFormFieldEmail', [function() {
+angular.module('formieIonic').directive('tsFormFieldEmail', [function() {
     var directive = {
         require: '^tsFormField',
         restrict: 'E',
@@ -221,7 +221,7 @@ angular.module('dodDocs').directive('tsFormFieldEmail', [function() {
     return directive;
 }]);
 
-angular.module('dodDocs').directive('tsFormFieldHeight', [function() {
+angular.module('formieIonic').directive('tsFormFieldHeight', [function() {
     var directive = {
         require: '^tsFormField',
         restrict: 'E',
@@ -242,7 +242,7 @@ angular.module('dodDocs').directive('tsFormFieldHeight', [function() {
     return directive;
 }]);
 
-angular.module('dodDocs').directive('tsFormFieldMonth', [function() {
+angular.module('formieIonic').directive('tsFormFieldMonth', [function() {
     var directive = {
         require: '^tsFormField',
         restrict: 'E',
@@ -259,7 +259,7 @@ angular.module('dodDocs').directive('tsFormFieldMonth', [function() {
     return directive;
 }]);
 
-angular.module('dodDocs').directive('tsFormFieldPassword', [function() {
+angular.module('formieIonic').directive('tsFormFieldPassword', [function() {
     var directive = {
         require: '^tsFormField',
         restrict: 'E',
@@ -280,7 +280,7 @@ angular.module('dodDocs').directive('tsFormFieldPassword', [function() {
     return directive;
 }]);
 
-angular.module('dodDocs').directive('tsFormFieldPhone', [function() {
+angular.module('formieIonic').directive('tsFormFieldPhone', [function() {
     var directive = {
         require: '^tsFormField',
         restrict: 'E',
@@ -301,7 +301,7 @@ angular.module('dodDocs').directive('tsFormFieldPhone', [function() {
     return directive;
 }]);
 
-angular.module('dodDocs').directive('tsFormFieldText', [function() {
+angular.module('formieIonic').directive('tsFormFieldText', [function() {
     var directive = {
         require: '^tsFormField',
         restrict: 'E',
@@ -322,7 +322,7 @@ angular.module('dodDocs').directive('tsFormFieldText', [function() {
     return directive;
 }]);
 
-angular.module('dodDocs').directive('tsFormFieldTextArea', [function() {
+angular.module('formieIonic').directive('tsFormFieldTextArea', [function() {
     var directive = {
         require: '^tsFormField',
         restrict: 'E',
@@ -339,7 +339,7 @@ angular.module('dodDocs').directive('tsFormFieldTextArea', [function() {
     return directive;
 }]);
 
-angular.module('dodDocs').directive('tsFormFieldWeight', [function() {
+angular.module('formieIonic').directive('tsFormFieldWeight', [function() {
     var directive = {
         require: '^tsFormField',
         restrict: 'E',
@@ -360,7 +360,7 @@ angular.module('dodDocs').directive('tsFormFieldWeight', [function() {
     return directive;
 }]);
 
-angular.module('dodDocs').directive('tsFormHelp', [function() {
+angular.module('formieIonic').directive('tsFormHelp', [function() {
     var directive = {
         restrict: 'E',
         scope: {

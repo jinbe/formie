@@ -9,7 +9,7 @@
  *
  * @param {string} message Message to display.
  */
-angular.module('dodDocs').directive('tsErrorMessage', [function() {
+angular.module('formieIonic').directive('tsErrorMessage', [function() {
     var directive = {
         restrict: 'E',
         scope: {

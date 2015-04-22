@@ -10,7 +10,7 @@
  * @param {number} value Value to display.
  * @param {string} text Text to display if no value provided.
  */
-angular.module('dodDocs').directive('tsPrice', [function() {
+angular.module('formieIonic').directive('tsPrice', [function() {
     var directive = {
         restrict: 'E',
         scope: {

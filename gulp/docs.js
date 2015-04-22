@@ -3,22 +3,16 @@
 var gulp = require('gulp');
 var jsguide = require('jsguide');
 
-gulp.task('docs', function(done) {
+gulp.task('docs', ['build:typescript'], function(done) {
     var options = {
         source: {
-            include: ['demo/scripts']
+            include: ['src/models/auto']
         },
-        nonJsFiles: 'demo/scripts/models/Interfaces.ts',
-        guides: 'demo/guides/**',
-        outDir: 'demo/docs',
-        moduleName: 'docsModule',
-        pageTitle: 'Using formie',
-        buildAsModuleFor: {
-            appModule: 'dodDocs',
-            baseState: 'demo.docs',
-            baseUrl: '',
-            baseTemplateUrl: '/docviews'
-        }
+        nonJsFiles: 'src/models/Interfaces.ts',
+        guides: 'docs/*.md',
+        outDir: 'docs/auto',
+        moduleName: 'formieDocs',
+        pageTitle: 'Using formie'
     };
 
     jsguide(options, done);
