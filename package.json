@@ -1,7 +1,6 @@
 {
-  "name": "dod",
-  "version": "1.0.0",
-  "description": "dod: An Ionic project",
+  "name": "formie",
+  "private": true,
   "dependencies": {},
   "devDependencies": {
     "bower": "^1.3.3",

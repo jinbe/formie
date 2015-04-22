@@ -1,34 +1,34 @@
 {
-  "name": "dod",
-  "private": "true",
-  "devDependencies": {
-    "ionic": "driftyco/ionic-bower#1.0.0-rc.1",
-    "platform": "~1.3.0"
+  "name": "formie",
+  "version": "1.0.0",
+  "description": "Dynamic forms, from json data to angular views",
+  "homepage": "https://github.com/2sol/formie",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/2sol/formie.git"
   },
+  "authors": [
+    "2sol <support@2sol.com.au> (https://github.com/2sol/formie)"
+  ],
+  "moduleType": [
+    "es6"
+  ],
+  "keywords": [
+    "angularjs",
+    "dynamic",
+    "forms",
+    "ionic"
+  ],
+  "license": "MIT",
+  "main": "dist/formieIonic.js",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
   "dependencies": {
-    "angular-ui-codemirror": "~0.2.3",
-    "angular-resource": "~1.3.15"
-  },
-  "overrides": {
-    "angular-resource": {
-      "dependencies": {}
-    },
-    "angular-ui-codemirror": {
-      "dependencies": {
-        "codemirror": "~4.8"
-      }
-    },
-    "codemirror": {
-      "main": [
-        "lib/codemirror.js",
-        "mode/javascript/javascript.js",
-        "addon/fold/brace-fold.js",
-        "addon/fold/foldcode.js",
-        "addon/fold/foldgutter.js",
-        "lib/codemirror.css",
-        "theme/blackboard.css",
-        "addon/fold/foldgutter.css"
-      ]
-    }
+    "ionic": "~0.9.27"
   }
 }
