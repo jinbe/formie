@@ -1,46 +1,23 @@
 'use strict';
 
-var gulp = require('gulp');
-var jsguide = require('jsguide');
-
-gulp.task('demo:docs', ['build:typescript'], function(done) {
-    var options = {
-        source: {
-            include: ['src/models/auto']
-        },
-        nonJsFiles: 'src/models/Interfaces.ts',
-        guides: 'docs/*.md',
-        outDir: 'demo/docs',
-        moduleName: 'docsModule',
-        buildAsModuleFor: {
-            appModule: 'dodDocs',
-            baseState: 'demo.docs',
-            baseUrl: '',
-            baseTemplateUrl: '/docviews'
-        }
-    };
-
-    jsguide(options, done);
-});
-
-var runSequence = require('run-sequence');
-var del = require('del');
-
-gulp.task('compile', ['compile:clean'], function(done) {
-    runSequence(['wiredep', 'views'], ['scripts', 'styles'], 'wiresrc', 'docs', done);
-});
-
-gulp.task('compile:clean', function(done) {
-    del('demo/{assets,scripts,styles}/auto/**', done);
-});
-
+var autoprefixer = require('gulp-autoprefixer');
 var browserSync = require('browser-sync');
+var concat = require('gulp-concat');
+var del = require('del');
+var gulp = require('gulp');
+var header = require('gulp-header');
+var jsguide = require('jsguide');
+var minifyHtml = require('gulp-minify-html');
+var ngHtml2js = require('gulp-ng-html2js');
+var runSequence = require('run-sequence');
+var sass = require('gulp-sass');
+var wiredep = require('wiredep');
 
-gulp.task('serve', ['compile'], function() {
-    gulp.watch('demo/views/**/*.html', ['views']);
-    gulp.watch('demo/scripts/models/**/*.ts', ['scripts:typescript']);
+gulp.task('demo', ['demo:build'], function() {
+    gulp.watch('demo/views/**/*.html', ['demo:views']);
+    gulp.watch('demo/scripts/models/**/*.ts', ['demo:docs']);
     gulp.watch('demo/styles/**/*.scss', ['styles']);
-    gulp.watch(['demo/index.html', 'demo/scripts/**/*.js', 'demo/assets/**/*'], browserSync.reload);
+    gulp.watch(['demo/index.html', 'demo/docs/**', 'demo/scripts/**/*.js'], browserSync.reload);
 
     browserSync({
         server: {
@@ -52,34 +29,69 @@ gulp.task('serve', ['compile'], function() {
     });
 });
 
+gulp.task('demo:build', function(done) {
+    runSequence('demo:clean', 'demo:docs', ['demo:wiredep', 'demo:views', 'demo:styles'], done);
+});
 
-var wiredep = require('wiredep').stream;
+gulp.task('demo:clean', function(done) {
+    del(['demo/docs/**', 'demo/{scripts,styles}/auto/**'], done);
+});
 
-gulp.task('wiredep', ['wiredep:index', 'wiredep:sass']);
+gulp.task('demo:docs', ['build:typescript'], function(done) {
+    var options = {
+        source: {
+            include: ['src/models/auto']
+        },
+        nonJsFiles: 'src/models/Interfaces.ts',
+        guides: 'docs/guide.md',
+        outDir: 'demo/docs',
+        moduleName: 'docsModule',
+        buildAsModuleFor: {
+            appModule: 'formieDemo',
+            baseState: 'demo.docs',
+            baseUrl: ''
+        }
+    };
 
-gulp.task('wiredep:index', function() {
+    jsguide(options, done);
+});
+
+gulp.task('demo:wiredep', function() {
     return gulp.src('demo/index.html')
-        .pipe(wiredep({
-            directory: 'demo/lib',
-            ignorePath: /^\/|\.\.\//
-        }))
+        .pipe(wiredep.stream({cwd: 'demo'}))
         .pipe(gulp.dest('demo'));
 });
 
-gulp.task('wiredep:sass', function() {
-    return gulp.src('demo/styles/vendor.scss')
-        .pipe(wiredep({
-            directory: 'demo/lib'
+gulp.task('demo:views', function() {
+    return gulp.src('demo/views/**/*.html')
+        .pipe(minifyHtml({
+            empty: true,
+            spare: true,
+            quotes: true
         }))
-        .pipe(gulp.dest('demo/styles'));
+        .pipe(ngHtml2js({
+            moduleName: 'formieDemo',
+            declareModule: false,
+            prefix: '/views/'
+        }))
+        .pipe(concat('views.js'))
+        .pipe(header('\'use strict\';\n\n'))
+        .pipe(gulp.dest('demo/scripts/auto'));
 });
 
-var inject = require('gulp-inject');
+gulp.task('demo:styles', function() {
+    var stream = gulp.src('demo/styles/{app,vendor}.scss')
+        .pipe(sass())
+        .on('error', function(err) {
+            console.error(err.toString());
+            this.emit('end');
+        })
+        .pipe(autoprefixer('last 1 version'))
+        .pipe(gulp.dest('demo/styles/auto'));
 
-gulp.task('wiresrc', function() {
-    var sources = gulp.src('demo/scripts/**/*.js', {read: false});
+    if (browserSync.active) {
+        return stream.pipe(browserSync.reload({stream: true}));
+    }
 
-    return gulp.src('demo/index.html')
-        .pipe(inject(sources, {relative: true}))
-        .pipe(gulp.dest('demo'));
+    return stream;
 });

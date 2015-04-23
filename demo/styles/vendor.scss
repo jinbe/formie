@@ -1,4 +1,4 @@
-// overwrite vendor variables
+// overwrite ionic variables
 //$light:                           #fff !default;
 //$stable:                          #f8f8f8 !default;
 //$positive:                        #387ef5 !default;
@@ -8,8 +8,6 @@ $calm: #02b8df !default;
 $assertive: #ee1c25 !default;
 //$royal:                           #886aea !default;
 //$dark:                            #444 !default;
-$ionicons-font-path: "../../lib/ionic/fonts" !default;
+$ionicons-font-path: "../../lib/ionic/release/fonts" !default;
 
-@import "../lib/ionic/scss/ionic";
-// bower:scss
-// endbower
+@import '../lib/ionic/scss/ionic';

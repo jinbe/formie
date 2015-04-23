@@ -1,4 +1,4 @@
-// define variables
+// overwrite formie variables
 $pendingColor: #ffc900;
 $doneColor: #02b8df;
 $logoSoftColor: #02b8df;
@@ -9,9 +9,5 @@ $linkColor: #428bca;
 $emptyColor: lightgray;
 $errorColor: #ee1c25;
 
-// global styles
-@import "global";
-
-// specific styles
-@import "directives/tsErrorMessage";
-@import "directives/tsForm";
+@import '../docs/docs';
+@import '../lib/formie/dist/formieIonic';

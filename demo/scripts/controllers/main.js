@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('dodDocs').controller('MainCtrl', ['$scope', function($scope) {
+angular.module('formieDemo').controller('MainCtrl', ['$scope', function($scope) {
     $scope.editorOptions = {
         lineWrapping: true,
         lineNumbers: true,

@@ -22,9 +22,12 @@
   "license": "MIT",
   "main": [
     "dist/formieIonic.js",
-    "dist/formieIonic.css"
+    "dist/formieIonic.css",
+    "dist/formieIonic.scss",
+    "dist/ionicOverwrite.scss"
   ],
   "ignore": [
+    "**/.*",
     "/.idea",
     "/demo",
     "/docs",

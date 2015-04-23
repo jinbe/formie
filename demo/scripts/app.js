@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module('dodDocs', ['ionic', 'ngAnimate', 'ngResource', 'ui.codemirror']);
+var app = angular.module('formieDemo', ['ionic', 'ngAnimate', 'ui.codemirror', 'ui.router']);
 
 app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
     $stateProvider
