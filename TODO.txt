@@ -1,3 +1,5 @@
 - Recreate demo piece by piece and see what fails.
 - Compare config with dod since ionic is designed for devices.
 - Bring unit tests from dod.
+- Add jshint to this and all previous projects.
+- Add ng-strict-di to all apps.

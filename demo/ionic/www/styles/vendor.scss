@@ -1,5 +1,10 @@
 // overwrite ionic variables
 $ionicons-font-path: "../../lib/ionic/fonts";
 
+// overwrite formieIonic variables
+$pendingColor: #ffc900;
+$errorColor: darkred;
+$linkColor: #428bca;
+
 @import '../lib/ionic/scss/ionic';
 @import '../lib/formie/dist/formieIonic';
