@@ -1,13 +1,7 @@
 // define variables
-$pendingColor: #ffc900;
-$doneColor: #02b8df;
-$logoSoftColor: #02b8df;
-$logoStrongColor: #ee1c25;
-$conditionColor: #444444;
-$medicationColor: #000000;
-$linkColor: #428bca;
-$emptyColor: lightgray;
-$errorColor: #ee1c25;
+$pendingColor: #ffc900 !default;
+$errorColor: darkred !default;
+$linkColor: #428bca !default;
 
 // global styles
 body {
@@ -60,10 +54,10 @@ body {
 
   .formView {
     min-height: 80vh;
-    border: solid 2px #A35A00;
+    border: solid 2px #a35a00;
 
     .formNav {
-      background: #A35A00;
+      background: #a35a00;
 
       .col {
         padding: 0;
@@ -92,7 +86,7 @@ body {
     }
 
     .formComplete {
-      color: #A35A00;
+      color: #a35a00;
       font-weight: bold;
       font-size: 2em;
       line-height: 2em;
