@@ -2,7 +2,7 @@
 
 'use strict';
 
-module formie {
+module formieModel {
     /**
      * @tsdoc model.interface
      * @name ValidationData

@@ -49,13 +49,13 @@ angular.module('formieIonic').directive('tsFormField', [function() {
         templateUrl: '/views/directives/tsFormField.html'
     };
 
-    directive.controller = function($scope) {
+    directive.controller = ['$scope', function($scope) {
         this.onComplete = function() {
             if ($scope.formField.valid()) {
                 $scope.form.nextField();
             }
         };
-    };
+    }];
 
     directive.link = function() {
     };

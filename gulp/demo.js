@@ -11,17 +11,16 @@ var minifyHtml = require('gulp-minify-html');
 var ngHtml2js = require('gulp-ng-html2js');
 var runSequence = require('run-sequence');
 var sass = require('gulp-sass');
-var wiredep = require('wiredep');
 
 gulp.task('demo', ['demo:build'], function() {
-    gulp.watch('demo/views/**/*.html', ['demo:views']);
-    gulp.watch('demo/scripts/models/**/*.ts', ['demo:docs']);
-    gulp.watch('demo/styles/**/*.scss', ['styles']);
-    gulp.watch(['demo/index.html', 'demo/docs/**', 'demo/scripts/**/*.js'], browserSync.reload);
+    gulp.watch('demo/ionic/www/views/**/*.html', ['demo:views']);
+    gulp.watch('demo/ionic/www/scripts/models/**/*.ts', ['demo:docs']);
+    gulp.watch('demo/ionic/www/styles/**/*.scss', ['styles']);
+    gulp.watch(['demo/ionic/www/index.html', 'demo/ionic/www/docs/**', 'demo/ionic/www/scripts/**/*.js'], browserSync.reload);
 
     browserSync({
         server: {
-            baseDir: 'demo'
+            baseDir: 'demo/ionic/www'
         },
         port: 3000,
         notify: false,
@@ -30,11 +29,11 @@ gulp.task('demo', ['demo:build'], function() {
 });
 
 gulp.task('demo:build', function(done) {
-    runSequence('demo:clean', 'demo:docs', ['demo:wiredep', 'demo:views', 'demo:styles'], done);
+    runSequence('demo:clean', 'demo:docs', ['demo:views', 'demo:styles'], done);
 });
 
 gulp.task('demo:clean', function(done) {
-    del(['demo/docs/**', 'demo/{scripts,styles}/auto/**'], done);
+    del(['demo/ionic/www/docs/**', 'demo/ionic/www/{scripts,styles}/auto/**'], done);
 });
 
 gulp.task('demo:docs', ['build:typescript'], function(done) {
@@ -44,10 +43,10 @@ gulp.task('demo:docs', ['build:typescript'], function(done) {
         },
         nonJsFiles: 'src/models/Interfaces.ts',
         guides: 'docs/guide.md',
-        outDir: 'demo/docs',
+        outDir: 'demo/ionic/www/docs',
         moduleName: 'docsModule',
         buildAsModuleFor: {
-            appModule: 'formieDemo',
+            appModule: 'formieIonicDemo',
             baseState: 'demo.docs',
             baseUrl: ''
         }
@@ -56,38 +55,32 @@ gulp.task('demo:docs', ['build:typescript'], function(done) {
     jsguide(options, done);
 });
 
-gulp.task('demo:wiredep', function() {
-    return gulp.src('demo/index.html')
-        .pipe(wiredep.stream({cwd: 'demo'}))
-        .pipe(gulp.dest('demo'));
-});
-
 gulp.task('demo:views', function() {
-    return gulp.src('demo/views/**/*.html')
+    return gulp.src('demo/ionic/www/views/**/*.html')
         .pipe(minifyHtml({
             empty: true,
             spare: true,
             quotes: true
         }))
         .pipe(ngHtml2js({
-            moduleName: 'formieDemo',
+            moduleName: 'formieIonicDemo',
             declareModule: false,
             prefix: '/views/'
         }))
         .pipe(concat('views.js'))
         .pipe(header('\'use strict\';\n\n'))
-        .pipe(gulp.dest('demo/scripts/auto'));
+        .pipe(gulp.dest('demo/ionic/www/scripts/auto'));
 });
 
 gulp.task('demo:styles', function() {
-    var stream = gulp.src('demo/styles/{app,vendor}.scss')
-        .pipe(sass())
+    var stream = gulp.src('demo/ionic/www/styles/{app,vendor}.scss')
+        .pipe(sass({errLogToConsole: false}))
         .on('error', function(err) {
             console.error(err.toString());
             this.emit('end');
         })
         .pipe(autoprefixer('last 1 version'))
-        .pipe(gulp.dest('demo/styles/auto'));
+        .pipe(gulp.dest('demo/ionic/www/styles/auto'));
 
     if (browserSync.active) {
         return stream.pipe(browserSync.reload({stream: true}));

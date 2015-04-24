@@ -1,6 +1,6 @@
 'use strict';
 
-module formie {
+module formieModel {
     /**
      * @tsdoc model.enum
      * @name FormFieldType

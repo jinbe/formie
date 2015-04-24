@@ -1,8 +1,8 @@
-/.idea
-/demo/docs
-/demo/lib
-/demo/scripts/auto
-/demo/styles/auto
+/.idea/workspace.xml
+/demo/ionic/docs
+/demo/ionic/lib
+/demo/ionic/scripts/auto
+/demo/ionic/styles/auto
 /docs/auto
 /node_modules
 /src/models/auto

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('formieDemo').controller('MainCtrl', ['$scope', function($scope) {
+angular.module('formieIonicDemo').controller('MainCtrl', ['$scope', function($scope) {
     $scope.editorOptions = {
         lineWrapping: true,
         lineNumbers: true,
@@ -65,7 +65,7 @@ angular.module('formieDemo').controller('MainCtrl', ['$scope', function($scope) 
     $scope.$watch('form.str', function(formStr) {
         if (formStr) {
             try {
-                var form = new Form(eval('(' + formStr + ')'));
+                var form = new formieModel.Form(eval('(' + formStr + ')'));
                 $scope.form.err = null;
                 $scope.form.obj = form;
             }
