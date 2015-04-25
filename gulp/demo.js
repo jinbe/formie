@@ -39,10 +39,10 @@ gulp.task('demo:clean', function(done) {
 gulp.task('demo:docs', ['build:typescript'], function(done) {
     var options = {
         source: {
-            include: ['src/models/auto']
+            scripts: ['src/models/auto/**'],
+            guides: 'docs/guide.md',
+            comments: 'src/models/Interfaces.ts'
         },
-        nonJsFiles: 'src/models/Interfaces.ts',
-        guides: 'docs/guide.md',
         outDir: 'demo/ionic/www/docs',
         moduleName: 'docsModule',
         buildAsModuleFor: {

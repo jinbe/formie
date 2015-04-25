@@ -11,7 +11,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
             abstract: true
         });
 
-    $urlRouterProvider.otherwise('/demo');
+    $urlRouterProvider.otherwise('/demo/guide/guide');
 }]);
 
 app.run(['$ionicPlatform', function($ionicPlatform) {

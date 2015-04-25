@@ -6,10 +6,10 @@ var jsguide = require('jsguide');
 gulp.task('docs', ['build:typescript'], function(done) {
     var options = {
         source: {
-            include: ['src/models/auto']
+            scripts: ['src/models/auto/**'],
+            guides: 'docs/*.md',
+            comments: 'src/models/Interfaces.ts'
         },
-        nonJsFiles: 'src/models/Interfaces.ts',
-        guides: 'docs/*.md',
         outDir: 'docs/auto',
         moduleName: 'formieDocs',
         pageTitle: 'Using formie'
