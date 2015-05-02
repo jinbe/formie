@@ -1,0 +1,324 @@
+$sectionColor: #5C5954;
+$codeColor: #a35a00;
+$codeFont: Comic Sans, Comic Sans MS, cursive;
+$typeColor: #aaaaaa;
+$typeFont: Consolas, Lucida Console, Monaco, monospace;
+$button-width: 36px;
+$button-height: 32px;
+$bar-thickness: 2px;
+$button-pad: 6px;
+$button-trans-delay: 0.3s;
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.jsguideDocView {
+  position: relative;
+}
+
+ts-doclet-menu {
+  .menuIcon {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    z-index: 100;
+
+    button {
+      background-color: $codeColor;
+    }
+  }
+
+  .menuContainer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 2em;
+    border-left: solid 2px $sectionColor;
+    border-bottom: solid 2px $sectionColor;
+    background: white;
+    transition: .3s linear all;
+    z-index: 10;
+
+    &.ng-hide {
+      top: -100vh;
+      transition: .6s linear all;
+    }
+
+    .guide {
+      a {
+        color: $codeColor;
+        font-size: 1.4em;
+        font-weight: bold;
+        text-decoration: none;
+        text-transform: capitalize;
+      }
+    }
+
+    .menuSection {
+      margin-top: 15px;
+
+      .sectionName {
+        font-weight: bold;
+      }
+
+      .menuItem {
+        .itemName {
+          a {
+            color: $sectionColor;
+          }
+        }
+      }
+    }
+  }
+}
+
+ts-doclet {
+  .name {
+    color: $codeColor;
+  }
+
+  .type {
+    color: $typeColor;
+    font-family: $typeFont;
+  }
+
+  .header {
+    padding: 0 0.6em;
+
+    .name {
+      font-size: 1.8em;
+      font-weight: bold;
+    }
+
+    .description {
+      font-size: 1.2em;
+
+      p {
+        margin-top: 5px;
+      }
+    }
+  }
+
+  .members {
+    padding: 0 0.6em;
+
+    .title {
+      margin-bottom: 15px;
+      border-bottom: solid 2px $sectionColor;
+      color: $sectionColor;
+      font-size: 1.2em;
+      font-weight: bold;
+      font-variant: small-caps;
+    }
+
+    .member {
+      .name {
+        display: inline-block;
+        font-size: 1.2em;
+        font-weight: bold;
+        font-family: $codeFont;
+      }
+
+      .type {
+        display: inline-block;
+        margin-left: 5px;
+        font-size: 1.2em;
+        font-weight: bold;
+      }
+
+      .description {
+        font-size: 1em;
+
+        p {
+          margin-top: 5px;
+        }
+      }
+    }
+  }
+
+  ts-doclet-class {
+  }
+
+  ts-doclet-enum {
+  }
+}
+
+.jsguide {
+  padding: 0 0.6em;
+
+  h1 {
+    margin: 0;
+    font-size: 1.8em;
+    font-weight: bold;
+    color: $codeColor;
+  }
+
+  h2 {
+    margin: 20px 0 10px;
+    color: $sectionColor;
+    font-size: 1.6em;
+    font-weight: bold;
+  }
+
+  a {
+    color: $codeColor;
+    font-family: $codeFont;
+    text-decoration: none;
+  }
+
+  ol {
+    margin: 0 0 0 3em;
+    padding: 0;
+    list-style-type: none;
+    counter-reset: li-counter;
+
+    & > li {
+      position: relative;
+      min-height: 3em;
+      margin-bottom: 20px;
+      padding-left: 0.5em;
+      border-left: 2px solid #CCCCCC;
+      font-weight: bold;
+
+      &:before {
+        content: counter(li-counter);
+        position: absolute;
+        top: 0;
+        left: -1em;
+        width: 0.8em;
+        font-size: 3em;
+        line-height: 1;
+        font-weight: bold;
+        text-align: right;
+        color: #464646;
+        counter-increment: li-counter;
+      }
+    }
+  }
+
+  ul {
+    margin: 0 0 0 1.5em;
+    padding: 0;
+    list-style-type: none;
+
+    & > li {
+      position: relative;
+      margin: 5px 0;
+      font-weight: normal;
+
+      &:before {
+        content: "-";
+        position: absolute;
+        top: 0;
+        left: -1em;
+        width: 0.8em;
+        font-size: 1.4em;
+        line-height: 1;
+        font-weight: bold;
+        text-align: right;
+        color: #464646;
+      }
+    }
+  }
+
+  pre {
+    margin: 0 0 10px;
+    padding: 16px;
+    border-radius: 3px;
+    background-color: #f7f7f7;
+    font-size: 85%;
+    line-height: 1.45;
+    overflow: auto;
+  }
+}
+
+.cmn-toggle-switch {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  width: $button-width;
+  height: $button-height;
+  font-size: 0;
+  text-indent: -9999px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  box-shadow: none;
+  border-radius: 0;
+  border: none;
+  cursor: pointer;
+  transition: background $button-trans-delay;
+}
+
+.cmn-toggle-switch:focus {
+  outline: none;
+}
+
+.cmn-toggle-switch span {
+  display: block;
+  position: absolute;
+  top: ($button-height / 2) - ($bar-thickness / 2);
+  left: $button-pad;
+  right: $button-pad;
+  height: $bar-thickness;
+  background: rgb(255, 255, 255);
+}
+
+.cmn-toggle-switch span::before,
+.cmn-toggle-switch span::after {
+  position: absolute;
+  display: block;
+  left: 0;
+  width: 100%;
+  height: $bar-thickness;
+  background-color: #fff;
+  content: "";
+}
+
+.cmn-toggle-switch span::before {
+  top: -(($button-height / 2) - ($bar-thickness / 2) - $button-pad);
+}
+
+.cmn-toggle-switch span::after {
+  bottom: -(($button-height / 2) - ($bar-thickness / 2) - $button-pad);
+}
+
+.cmn-toggle-switch__htx span {
+  transition: background 0s $button-trans-delay;
+}
+
+.cmn-toggle-switch__htx span::before,
+.cmn-toggle-switch__htx span::after {
+  transition-duration: $button-trans-delay, $button-trans-delay;
+  transition-delay: $button-trans-delay, 0s;
+}
+
+.cmn-toggle-switch__htx span::before {
+  transition-property: top, transform;
+}
+
+.cmn-toggle-switch__htx span::after {
+  transition-property: bottom, transform;
+}
+
+.cmn-toggle-switch__htx.active span {
+  background: none;
+}
+
+.cmn-toggle-switch__htx.active span::before {
+  top: 0;
+  transform: rotate(45deg);
+}
+
+.cmn-toggle-switch__htx.active span::after {
+  bottom: 0;
+  transform: rotate(-45deg);
+}
+
+.cmn-toggle-switch__htx.active span::before,
+.cmn-toggle-switch__htx.active span::after {
+  transition-delay: 0s, $button-trans-delay;
+}

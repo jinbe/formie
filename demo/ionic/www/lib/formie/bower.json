@@ -1,0 +1,47 @@
+{
+  "name": "formie",
+  "version": "1.0.0",
+  "description": "Dynamic forms, from json data to angular views",
+  "homepage": "https://github.com/2sol/formie",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/2sol/formie.git"
+  },
+  "authors": [
+    "2sol <support@2sol.com.au> (https://github.com/2sol/formie)"
+  ],
+  "moduleType": [
+    "es6"
+  ],
+  "keywords": [
+    "angularjs",
+    "dynamic",
+    "forms",
+    "ionic"
+  ],
+  "license": "MIT",
+  "main": [
+    "dist/formieIonic.js",
+    "dist/formieIonic.css",
+    "dist/formieIonic.scss",
+    "dist/ionicOverwrite.scss"
+  ],
+  "ignore": [
+    "**/.*",
+    "/.idea",
+    "/demo",
+    "/docs",
+    "/gulp",
+    "/node_modules",
+    "/src",
+    "/test",
+    ".gitignore",
+    ".jshintrc",
+    "gulpfile.js",
+    "package.json",
+    "TODO.txt"
+  ],
+  "dependencies": {
+    "ionic": "~0.9.27"
+  }
+}
