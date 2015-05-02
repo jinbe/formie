@@ -1,0 +1,3 @@
+- Bring unit tests from dod.
+- Add jshint to this and all previous projects.
+- Add ng-strict-di to all apps.

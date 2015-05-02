@@ -1,0 +1,15 @@
+<div class="helpText" ng-if="!formData.popupLink && formData.text">
+    {{formData.text}}
+</div>
+
+<div class="helpHtml" ng-bind-html="formData.html" ng-if="!formData.popupLink && formData.html"></div>
+
+<div class="helpPopupLink" ng-if="formData.popupLink">
+    {{formData.popupLink}}
+</div>
+
+<div class="helpPopupText" ng-if="formData.popupLink && formData.text">
+    {{formData.text}}
+</div>
+
+<div class="helpPopupHtml" ng-bind-html="formData.html" ng-if="formData.popupLink && formData.html"></div>

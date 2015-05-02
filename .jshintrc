@@ -6,21 +6,14 @@
   "devel": true,
   "eqeqeq": true,
   "esnext": true,
-  "exported": {
-    "Cart": true,
-    "Form": true,
-    "FormField": true,
-    "User": true
-  },
   "globals": {
-    "Cart": true,
-    "Form": true,
-    "FormField": true,
-    "User": true,
     "angular": false,
-    "cordova": false
+    "cordova": false,
+    "formieModel": true,
+    "CodeMirror": false
   },
   "immed": true,
+  "jasmine": true,
   "jquery": true,
   "latedef": "nofunc",
   "multistr": true,

@@ -1,0 +1,3 @@
+<component name="DependencyValidationManager">
+  <scope name="Source Files" pattern="file[formie]:*/&amp;&amp;!file[formie]:demo/ionic/www/lib//*" />
+</component>
