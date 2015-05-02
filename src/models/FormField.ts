@@ -16,7 +16,7 @@ module formieModel {
      * @property {string} question Field question or instructions.
      * @property {string} label Field label.
      * @property {string} placeholder Field placeholder.
-     * @property {string[]} options array of options Field options (specific to type 'option').
+     * @property {string[]} options Array of options (specific to type 'option').
      * @property {ValidationData} validation Validation rules.
      * @property {HelpData} help Help options.
      * @property {boolean} abstract If the group field is abstract (specific to types 'group' and 'choiceGroup').
@@ -26,28 +26,28 @@ module formieModel {
      */
     export class FormField {
         // field input data
-        id:string;
-        type:string;
-        question:string;
-        label:string;
-        placeholder:string;
-        options:any[];
-        validation:ValidationData;
-        help:HelpData;
+        id: string;
+        type: string;
+        question: string;
+        label: string;
+        placeholder: string;
+        options: any[];
+        validation: ValidationData;
+        help: HelpData;
 
         // group input data
-        abstract:boolean;
-        subfields:FormField[];
-        choiceField:FormField;
-        choiceSubfields:{[option: string]: FormField[]};
+        abstract: boolean;
+        subfields: FormField[];
+        choiceField: FormField;
+        choiceSubfields: {[option: string]: FormField[]};
 
         // generated data
-        parentId:string;
+        parentId: string;
 
         // value data
-        value:any;
+        value: any;
 
-        constructor(parentId:string, formFieldData:FormField, form:Form) {
+        constructor(parentId: string, formFieldData: FormField, form: Form) {
             this.checkData(formFieldData);
 
             if (formFieldData.id && (formFieldData.id in form.fieldMap)) {
@@ -91,17 +91,17 @@ module formieModel {
             form.fieldMap[this.id] = this;
         }
 
-        isGroup(formFieldData?:FormField):boolean {
+        isGroup(formFieldData?: FormField): boolean {
             var fieldType = (formFieldData ? formFieldData.type : this.type);
             return (fieldType === FormFieldType.group.name || fieldType === FormFieldType.choiceGroup.name);
         }
 
-        isDiscrete(formFieldData?:FormField):boolean {
+        isDiscrete(formFieldData?: FormField): boolean {
             var fieldType = (formFieldData ? formFieldData.type : this.type);
             return (FormFieldType[fieldType].format === 'discrete');
         }
 
-        answerableFields():FormField[] {
+        answerableFields(): FormField[] {
             var fields = [];
 
             if (!this.isGroup()) {
@@ -129,7 +129,7 @@ module formieModel {
             return fields;
         }
 
-        firstSubfield():FormField {
+        firstSubfield(): FormField {
             if (this.isGroup() && this.abstract) {
                 if (this.type === FormFieldType.group.name) {
                     return this.subfields[0].firstSubfield();
@@ -141,7 +141,7 @@ module formieModel {
             return this;
         }
 
-        lastSubfield():FormField {
+        lastSubfield(): FormField {
             if (this.isGroup() && this.abstract) {
                 var subfields = (this.type === FormFieldType.group.name ? this.subfields : this.choiceSubfields[this.choiceField.value]);
                 if (subfields) {
@@ -154,7 +154,7 @@ module formieModel {
             return this;
         }
 
-        valid():boolean {
+        valid(): boolean {
             if (this.isGroup()) {
                 var subfields = (this.type === FormFieldType.group.name ? this.subfields : this.choiceSubfields[this.choiceField.value]);
                 if (subfields) {
@@ -171,7 +171,7 @@ module formieModel {
             return this.checkValue();
         }
 
-        private checkData(formFieldData:FormField, checkAbstract?:boolean) {
+        private checkData(formFieldData: FormField, checkAbstract?: boolean) {
             if (!this.isGroup(formFieldData) && !formFieldData.id) {
                 throw new TypeError('Form field id required for ' + this.toDebugString(formFieldData));
             }
@@ -246,7 +246,7 @@ module formieModel {
             }
         }
 
-        private checkValue():boolean {
+        private checkValue(): boolean {
             var required = (this.validation && this.validation.required);
             var format = FormFieldType[this.type].format;
 
@@ -267,7 +267,7 @@ module formieModel {
             return true;
         }
 
-        private getOptions(formFieldData:FormField):any[] {
+        private getOptions(formFieldData: FormField): any[] {
             if (!formFieldData.options) {
                 return FormFieldType[formFieldData.type].options;
             }
@@ -275,12 +275,12 @@ module formieModel {
             return formFieldData.options;
         }
 
-        private toDebugString(formFieldData?:FormField):string {
+        private toDebugString(formFieldData?: FormField): string {
             var fieldData = (formFieldData || this);
             return (fieldData.id || fieldData.label || fieldData.question || JSON.stringify(fieldData));
         }
 
-        private guid():string {
+        private guid(): string {
             var now = Date.now();
             var guid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
                 var r = (now + Math.random() * 16) % 16 | 0; // jshint ignore:line

@@ -27,6 +27,8 @@ gulp.task('build:clean', function(done) {
 gulp.task('build:typescript', function() {
     return gulp.src('src/models/**/*.ts')
         .pipe(typescript({out: 'models.js', removeComments: false}))
+        .pipe(replace(/'use strict';\s*/g, ''))
+        .pipe(header('\'use strict\';\n\n'))
         .pipe(gulp.dest('src/models/auto'));
 });
 

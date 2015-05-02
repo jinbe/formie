@@ -13,18 +13,18 @@ module formieModel {
      */
     export class Form {
         // data
-        id:string;
-        title:string;
-        fields:FormField[];
-        help:HelpData;
+        id: string;
+        title: string;
+        fields: FormField[];
+        help: HelpData;
 
         // indexing
-        fieldMap:{[fieldId: string]: FormField};
+        fieldMap: {[fieldId: string]: FormField};
 
         // state
-        currentField:FormField;
+        currentField: FormField;
 
-        constructor(formData:Form) {
+        constructor(formData: Form) {
             this.checkData(formData);
 
             this.id = formData.id;
@@ -42,15 +42,15 @@ module formieModel {
             this.nextField();
         }
 
-        hasPrevField(includeNonAnswerable?:boolean) {
+        hasPrevField() {
             return (this.currentField !== this.fields[0].firstSubfield());
         }
 
-        hasNextField(includeNonAnswerable?:boolean) {
+        hasNextField() {
             return (this.currentField !== this.fields[this.fields.length - 1].lastSubfield());
         }
 
-        prevField(includeNonAnswerable?:boolean) {
+        prevField(includeNonAnswerable?: boolean) {
             this.currentField = this.getPrevField(this.currentField);
 
             if (!includeNonAnswerable) {
@@ -60,7 +60,7 @@ module formieModel {
             }
         }
 
-        nextField(includeNonAnswerable?:boolean) {
+        nextField(includeNonAnswerable?: boolean) {
             this.currentField = this.getNextField(this.currentField);
 
             if (!includeNonAnswerable) {
@@ -70,7 +70,7 @@ module formieModel {
             }
         }
 
-        valid():boolean {
+        valid(): boolean {
             for (var i = 0; i < this.fields.length; i++) {
                 if (!this.fields[i].valid()) {
                     return false;
@@ -80,7 +80,7 @@ module formieModel {
             return true;
         }
 
-        private checkData(formData:Form) {
+        private checkData(formData: Form) {
             if (!formData.id) {
                 throw new TypeError('Form id required for ' + this.toDebugString(formData));
             }
@@ -94,12 +94,12 @@ module formieModel {
             }
         }
 
-        private toDebugString(formData?:Form):string {
+        private toDebugString(formData?: Form): string {
             var data = (formData || this);
             return (data.id || data.title || JSON.stringify(data));
         }
 
-        private getPrevField(currentField:FormField) {
+        private getPrevField(currentField: FormField) {
             if (!currentField) {
                 return this.fields[this.fields.length - 1].lastSubfield();
             }
@@ -138,7 +138,7 @@ module formieModel {
             return null;
         }
 
-        private getNextField(currentField:FormField, skipNested?:boolean) {
+        private getNextField(currentField: FormField, skipNested?: boolean) {
             if (!currentField) {
                 return this.fields[0];
             }

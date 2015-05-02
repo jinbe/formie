@@ -65,7 +65,7 @@ angular.module('formieIonicDemo').controller('MainCtrl', ['$scope', function($sc
     $scope.$watch('form.str', function(formStr) {
         if (formStr) {
             try {
-                var form = new formieModel.Form(eval('(' + formStr + ')'));
+                var form = new formieModel.Form(eval('(' + formStr + ')')); // jshint ignore:line
                 $scope.form.err = null;
                 $scope.form.obj = form;
             }
